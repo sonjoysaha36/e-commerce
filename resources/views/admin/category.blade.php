@@ -41,6 +41,31 @@
                         <input type="submit" class="btn btn-primary" name="submit" value="Add Category">
                     </form>
                 </div>
+                <br>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                          <th scope="col">SL No:</th>
+                          <th scope="col">Category Name</th>
+                          <th scope="col">Action</th>
+                          
+                        </tr>
+                      </thead>
+                      @foreach ($data as $key=>$data)
+                      <tbody>
+                        <tr>
+                          <th scope="row">{{ ++$key}}</th>
+                          <td>{{$data->category_name}}</td>
+                          <td>
+                              <a onclick="return confirm('Are You Sure To Delete This')" class="btn btn-danger" href="{{url('delete_category',$data->id)}}">Delete</a>
+                              <a class="btn btn-danger" href="">Edit</a>
+                          </td>
+                          
+                        </tr>
+                    </tbody>
+                    @endforeach
+
+                </table>
 
             </div>
         </div>
