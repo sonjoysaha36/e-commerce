@@ -58,9 +58,10 @@
                             <td>{{$product->price}}</td>
                             <td>{{$product->discount_price}}</td>
                             <td>
-                                <img src="product/{{$product->image}}" alt="">
+                                <img src="product/{{$product->image}}"  alt="">
                             </td>
-                            <td><a href="{{url('remove_product',$product->id)}}" class="btn btn-danger">Remove</a></td>
+                            <td><a href="{{url('remove_product',$product->id)}}" class="btn btn-danger">Remove</a>
+                            <a class="btn btn-danger" href="{{url('edit_product',$product->id)}}">Edit</a></td>
                             
                           </tr>
                             
