@@ -14,12 +14,20 @@
              <div class="box">
                 <div class="option_container">
                    <div class="options">
-                      <a href="" class="option1">
-                      {{$products->title}}
+                      <a href="{{url('product_details',$products->id)}}" class="option1">
+                      Product Details
                       </a>
-                      <a href="" class="option2">
-                      Buy Now
-                      </a>
+                      <form action="{{url('add_cart',$products->id)}}" method="POST">
+                         @csrf
+                         <div class="row">
+                            <div class="col-md-4" style="width: 100px">
+                              <input type="number" name="quantity" value="1" min="1">
+                            </div>
+                            <div class="col-md-4">
+                              <input type="submit" value="Add to Cart">
+                            </div>
+                        </div>
+                      </form>
                    </div>
                 </div>
                 <div class="img-box">
@@ -31,13 +39,17 @@
                    </h5>
                    @if($products->discount_price!=null)
                      <h6 style="color: red">
+                        Discount Price
+                        <br>
                         ${{$products->discount_price}}
                      </h6>
-                     <h6 style="text-decoration: line-through; color:blue">
-                        ${{$products->price}}
+                     <h6 style="color: blue">Price <br><span style="text-decoration: line-through; color:blue"> ${{$products->price}}</span>
+                       
                      </h6>
                      @else
                      <h6 style="color:blue">
+                        Price
+                        <br>
                         ${{$products->price}}
                      </h6>
                    
